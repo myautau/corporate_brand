@@ -37,27 +37,27 @@ function App() {
 
       <header className="header">
         <div className="header__left">
-          <a className="brandlist" href="#" aria-label="Брендлист — на главную"><img src="/assets/brandlist-logo.svg" alt="" /></a>
+          <a className="brandlist" href="#" aria-label="Брендлист — на главную"><img src="assets/brandlist-logo.svg" alt="" /></a>
           <nav className="nav" aria-label="Основная навигация">
-            <span className="nav__item nav__item--active">Бренды компании <img src="/assets/chevron.svg" alt="" /></span>
-            <span className="nav__item">Товарные знаки <img src="/assets/chevron.svg" alt="" /></span>
+            <span className="nav__item nav__item--active">Бренды компании <img src="assets/chevron.svg" alt="" /></span>
+            <span className="nav__item">Товарные знаки <img src="assets/chevron.svg" alt="" /></span>
           </nav>
         </div>
         <div className="header__right">
-          <button className="icon-button notifications" type="button" aria-label="Уведомления"><img src="/assets/search.svg" alt="" /><span className="notifications__dot" /></button>
-          <button className="profile" type="button" aria-label="Открыть профиль Ивана Петрова"><span className="profile__avatar"><img className="profile__photo" src="/assets/avatar.png" alt="" /><img className="profile__ring" src="/assets/avatar-ring.svg" alt="" /></span><span>Иван Петров</span></button>
-          <button className="icon-button" type="button" aria-label="Выйти"><img src="/assets/exit.svg" alt="" /></button>
+          <button className="icon-button notifications" type="button" aria-label="Уведомления"><img src="assets/search.svg" alt="" /><span className="notifications__dot" /></button>
+          <button className="profile" type="button" aria-label="Открыть профиль Ивана Петрова"><span className="profile__avatar"><img className="profile__photo" src="assets/avatar.png" alt="" /><img className="profile__ring" src="assets/avatar-ring.svg" alt="" /></span><span>Иван Петров</span></button>
+          <button className="icon-button" type="button" aria-label="Выйти"><img src="assets/exit.svg" alt="" /></button>
         </div>
       </header>
 
       <section className="hero" aria-labelledby="hero-title">
-        <img className="hero__logo" src="/assets/brand-logo.svg" alt="Газпром нефть — Цифровая нефтяная компания" />
+        <img className="hero__logo" src="assets/brand-logo.svg" alt="Газпром нефть — Цифровая нефтяная компания" />
         <h1 id="hero-title">Единая система<br />фирменного стиля для всех<br />подразделений и&nbsp;ДО</h1>
       </section>
 
       <aside className="cards" aria-label="Материалы и новости">
-        <article className="glass-card guide-card"><div className="guide-card__copy"><div><h2>Книга фирменного стиля</h2><p>PDF <span aria-hidden="true">·</span> 33 МБ</p></div><a className="download-button" href="/assets/guide-cover.png" download>Скачать <img src="/assets/download.svg" alt="" /></a></div><img className="guide-card__cover" src="/assets/guide-cover.png" alt="Обложка книги фирменного стиля" /></article>
-        <article className="glass-card news-card" aria-live="polite"><div className="news-card__content"><div className="news-card__meta"><span className={`badge badge--${current.tone}`}>{current.badge}</span><time>{current.date}</time></div><div><h2>{current.title}</h2><p>{current.category}</p></div></div><div className="news-card__footer"><div className="pager" aria-label={`Слайд ${slide + 1} из ${slides.length}`}>{slides.map((_, index) => <span key={index} className={`pager__dot ${index === slide ? "pager__dot--active" : ""}`} />)}</div><div className="slider-controls"><button type="button" onClick={() => move(-1)} aria-label="Предыдущая новость"><img src="/assets/arrow-left.svg" alt="" /></button><button type="button" onClick={() => move(1)} aria-label="Следующая новость"><img src="/assets/arrow-right.svg" alt="" /></button></div></div></article>
+        <article className="glass-card guide-card"><div className="guide-card__copy"><div><h2>Книга фирменного стиля</h2><p>PDF <span aria-hidden="true">·</span> 33 МБ</p></div><a className="download-button" href="assets/guide-cover.png" download>Скачать <img src="assets/download.svg" alt="" /></a></div><img className="guide-card__cover" src="assets/guide-cover.png" alt="Обложка книги фирменного стиля" /></article>
+        <article className="glass-card news-card" aria-live="polite"><div className="news-card__content"><div className="news-card__meta"><span className={`badge badge--${current.tone}`}>{current.badge}</span><time>{current.date}</time></div><div><h2>{current.title}</h2><p>{current.category}</p></div></div><div className="news-card__footer"><div className="pager" aria-label={`Слайд ${slide + 1} из ${slides.length}`}>{slides.map((_, index) => <span key={index} className={`pager__dot ${index === slide ? "pager__dot--active" : ""}`} />)}</div><div className="slider-controls"><button type="button" onClick={() => move(-1)} aria-label="Предыдущая новость"><img src="assets/arrow-left.svg" alt="" /></button><button type="button" onClick={() => move(1)} aria-label="Следующая новость"><img src="assets/arrow-right.svg" alt="" /></button></div></div></article>
       </aside>
     </main>
   );
