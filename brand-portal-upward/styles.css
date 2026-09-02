@@ -1,0 +1,88 @@
+@font-face { font-family: Inter; src: url("./assets/InterVariable.ttf") format("truetype"); font-weight: 100 900; font-style: normal; font-display: swap; }
+:root { font-family: Inter, Arial, sans-serif; font-synthesis: none; font-optical-sizing: none; color-scheme: dark; --brand-blue: #004596; }
+* { box-sizing: border-box; }
+html, body, #root { min-width: 320px; min-height: 100%; margin: 0; }
+body { background: var(--brand-blue); color: white; }
+button, a { font: inherit; color: inherit; }
+button { cursor: pointer; }
+button:focus-visible, a:focus-visible { outline: 2px solid white; outline-offset: 5px; }
+.portal { position: relative; width: 100%; height: 100svh; min-height: 650px; overflow: hidden; isolation: isolate; background: var(--brand-blue); }
+.letter-field { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.symbol { position: absolute; display: block; transform: translate(-50%, -50%); }
+.symbol svg { display: block; width: 100%; height: 100%; }
+.letter-field--running .symbol { will-change: transform; }
+.brand-lockup { position: absolute; top: 111px; left: 56px; width: 694px; height: 122px; }
+.hero-copy { position: absolute; bottom: 56px; left: 56px; display: flex; flex-direction: column; gap: 25px; width: 758px; }
+.hero-copy h1 { width: 659px; margin: 0; font-size: 56px; font-weight: 600; line-height: 1.05; letter-spacing: -.84px; }
+.hero-copy p { width: 508px; margin: 0; font-size: 20px; line-height: 1.5; }
+.guide-wrap { position: absolute; right: 56px; bottom: 56px; width: 409px; }
+.guide-card { position: relative; display: flex; align-items: center; gap: 24px; width: 409px; height: 127px; border-radius: 8px; overflow: hidden; background: transparent; box-shadow: 0 4px 12px rgba(0,0,0,.03); }
+.guide-card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: rgba(255,255,255,.24); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); pointer-events: none; }
+.guide-card__content { position: relative; flex: 0 0 258px; display: flex; flex-direction: column; gap: 16px; padding: 16px; }
+.guide-card h2 { margin: 0; font-size: 18px; font-weight: 600; line-height: normal; white-space: nowrap; }
+.guide-card p { display: flex; gap: 8px; margin: 8px 0 0; font-size: 14px; line-height: normal; }
+.guide-card button { align-self: flex-start; display: flex; align-items: center; justify-content: center; gap: 10px; height: 32px; padding: 0 12px; border: 0; border-radius: 4px; background: rgba(255,255,255,.24); font-size: 14px; line-height: 1.5; }
+.guide-card button:hover { background: rgba(255,255,255,.4); }
+.guide-card button img { width: 12px; height: 12px; }
+.guide-card__cover { position: relative; flex: 0 0 127px; height: 127px; overflow: hidden; border-radius: 4px; }
+.guide-card__art { position: absolute; top: 14px; left: 10px; width: 293px; height: 179px; border-radius: 8px 14px 0 0; overflow: hidden; transform: scaleX(-1); }
+.guide-card__art img { position: absolute; top: .03%; left: -3.77%; width: 110.24%; height: 99.97%; max-width: none; }
+.header { position: absolute; inset: 0 0 auto; display: flex; align-items: center; justify-content: space-between; height: 70px; padding: 0 56px; border-bottom: 1px solid rgba(255,255,255,.2); }
+.header__left, .header__right, .nav, .profile { display: flex; align-items: center; }
+.header__left { align-self: stretch; gap: 32px; }
+.header__right { gap: 8px; }
+.brandlist { position: relative; width: 148px; height: 69px; }
+.brandlist img { position: absolute; top: 22.5px; left: 0; display: block; width: 148px; height: 34px; }
+.nav { align-self: flex-end; gap: 16px; }
+.nav__item { position: relative; display: flex; align-items: center; gap: 4px; padding: 0 0 18px; border: 0; background: none; font-size: 16px; line-height: 1.2; white-space: nowrap; }
+.nav__item img { width: 12px; height: 12px; }
+.nav__item--active span::after { content: ""; position: absolute; bottom: 0; left: 0; width: calc(100% - 16px); height: 2px; background: white; }
+.icon-button, .profile { min-width: 32px; min-height: 40px; padding: 0; border: 0; background: transparent; }
+.icon-button { display: grid; place-items: center; }
+.icon-button img { width: 24px; height: 24px; }
+.notifications { margin-right: 8px; }
+.profile { gap: 8px; padding-right: 16px; font-size: 16px; white-space: nowrap; }
+.profile__avatar { position: relative; width: 40px; height: 40px; }
+.profile__photo { position: absolute; inset: 4px; width: 32px; height: 32px; border-radius: 16px; object-fit: cover; }
+.profile__ring { position: absolute; inset: 0; width: 40px; height: 40px; }
+.preview-dialog { width: min(440px, calc(100vw - 40px)); padding: 28px; border: 1px solid #ffffff40; border-radius: 12px; background: #004596; color: white; }
+.preview-dialog::backdrop { background: #00182f99; backdrop-filter: blur(8px); }
+.preview-dialog h2 { margin: 0 0 16px; font-size: 22px; }
+.preview-dialog p { line-height: 1.5; }
+.preview-dialog button { border: 0; background: #ffffff30; padding: 10px 18px; border-radius: 4px; }
+@media (min-width: 821px) and (max-width: 1250px) {
+  .header { padding-inline: 32px; }
+  .brand-lockup { left: 32px; width: 58vw; height: auto; }
+  .hero-copy { left: 32px; width: calc(100% - 500px); }
+  .hero-copy h1 { width: 100%; font-size: clamp(36px, 4vw, 50px); }
+  .hero-copy p { width: 100%; font-size: 18px; }
+  .guide-wrap { right: 32px; }
+  .profile > span:last-child { display: none; }
+  .profile { padding-right: 0; }
+}
+@media (max-width: 820px) {
+  .portal { min-height: 800px; }
+  .header { padding-inline: 24px; }
+  .nav { display: none; }
+  .profile > span:last-child { display: none; }
+  .profile { padding-right: 0; }
+  .brand-lockup { top: 110px; left: 28px; width: calc(100% - 56px); height: auto; }
+  .hero-copy { left: 28px; right: 28px; bottom: 240px; width: auto; gap: 22px; }
+  .hero-copy h1 { width: 100%; font-size: clamp(32px, 5.5vw, 46px); letter-spacing: -.5px; }
+  .hero-copy p { width: min(100%, 508px); font-size: 18px; }
+  .guide-wrap { left: 28px; right: 28px; bottom: 64px; width: auto; }
+  .guide-card { width: min(409px, 100%); gap: 8px; }
+  .guide-card__content { flex-basis: 258px; }
+}
+@media (max-width: 380px) {
+  .header { padding-inline: 16px; }
+  .brandlist, .brandlist img { width: 126px; }
+  .notifications { margin-right: 0; }
+  .hero-copy, .brand-lockup { left: 20px; }
+  .hero-copy { right: 20px; }
+  .brand-lockup { width: calc(100% - 40px); }
+  .guide-wrap { left: 20px; right: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; }
+}
