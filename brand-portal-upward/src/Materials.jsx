@@ -24,8 +24,8 @@ function MaterialCard({ kind, title, src, onOpen }) {
 export default function Materials({ onOpen }) {
   return <section className="materials" id="materials" aria-labelledby="materials-title">
     <div className="materials__heading">
-      <h2 id="materials-title">Материалы корпоративного бренда</h2>
-      <button className="materials__more" type="button" onClick={() => onOpen("Материалы корпоративного бренда")}>
+      <h2 id="materials-title">Материалы бренда</h2>
+      <button className="materials__more" type="button" onClick={() => onOpen("Материалы бренда")}>
         Перейти в раздел <img src={arrow} alt="" />
       </button>
     </div>
