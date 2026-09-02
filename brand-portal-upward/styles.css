@@ -14,7 +14,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid white; outline-offset
 .letter-field--running .symbol { will-change: transform; }
 .brand-lockup { position: absolute; top: 119px; left: 56px; width: 576px; height: 101px; }
 .hero-copy { position: absolute; bottom: 56px; left: 56px; display: flex; flex-direction: column; gap: 25px; width: 758px; }
-.hero-copy h1 { width: 659px; margin: 0; font-family: "Inter Display", Inter, Arial, sans-serif; font-size: 56px; font-weight: 600; line-height: 1.05; letter-spacing: -.01em; }
+.hero-copy h1 { width: 659px; margin: 0; font-family: "Inter Display", Inter, Arial, sans-serif; font-size: 60px; font-weight: 600; line-height: 1.05; letter-spacing: -.01em; }
 .hero-copy p { width: 508px; margin: 0; font-size: 20px; line-height: 1.5; }
 .guide-wrap { position: absolute; right: 56px; bottom: 56px; width: 409px; }
 .guide-card { position: relative; display: flex; align-items: center; gap: 24px; width: 409px; height: 127px; border-radius: 8px; overflow: hidden; background: transparent; box-shadow: 0 4px 12px rgba(0,0,0,.03); }
