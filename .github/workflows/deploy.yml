@@ -29,19 +29,22 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-          cache-dependency-path: brand-portal/pnpm-lock.yaml
+          cache-dependency-path: brand-portal-upward/pnpm-lock.yaml
       - name: Install dependencies
-        working-directory: brand-portal
+        working-directory: brand-portal-upward
         run: pnpm install --frozen-lockfile
+      - name: Test
+        working-directory: brand-portal-upward
+        run: pnpm test
       - name: Build
-        working-directory: brand-portal
-        run: pnpm build
+        working-directory: brand-portal-upward
+        run: pnpm build --base=/corporate_brand/
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: brand-portal/dist
+          path: brand-portal-upward/dist
 
   deploy:
     environment:

@@ -1,4 +1,5 @@
 @font-face { font-family: Inter; src: url("./assets/InterVariable.ttf") format("truetype"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter Display"; src: url("./assets/InterDisplay-SemiBold.ttf") format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
 :root { font-family: Inter, Arial, sans-serif; font-synthesis: none; font-optical-sizing: none; color-scheme: dark; --brand-blue: #004596; }
 * { box-sizing: border-box; }
 html, body, #root { min-width: 320px; min-height: 100%; margin: 0; }
@@ -11,15 +12,15 @@ button:focus-visible, a:focus-visible { outline: 2px solid white; outline-offset
 .symbol { position: absolute; display: block; transform: translate(-50%, -50%); }
 .symbol svg { display: block; width: 100%; height: 100%; }
 .letter-field--running .symbol { will-change: transform; }
-.brand-lockup { position: absolute; top: 111px; left: 56px; width: 694px; height: 122px; }
+.brand-lockup { position: absolute; top: 119px; left: 56px; width: 576px; height: 101px; }
 .hero-copy { position: absolute; bottom: 56px; left: 56px; display: flex; flex-direction: column; gap: 25px; width: 758px; }
-.hero-copy h1 { width: 659px; margin: 0; font-size: 56px; font-weight: 600; line-height: 1.05; letter-spacing: -.84px; }
+.hero-copy h1 { width: 659px; margin: 0; font-family: "Inter Display", Inter, Arial, sans-serif; font-size: 56px; font-weight: 600; line-height: 1.05; letter-spacing: -.01em; }
 .hero-copy p { width: 508px; margin: 0; font-size: 20px; line-height: 1.5; }
 .guide-wrap { position: absolute; right: 56px; bottom: 56px; width: 409px; }
 .guide-card { position: relative; display: flex; align-items: center; gap: 24px; width: 409px; height: 127px; border-radius: 8px; overflow: hidden; background: transparent; box-shadow: 0 4px 12px rgba(0,0,0,.03); }
 .guide-card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: rgba(255,255,255,.24); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); pointer-events: none; }
 .guide-card__content { position: relative; flex: 0 0 258px; display: flex; flex-direction: column; gap: 16px; padding: 16px; }
-.guide-card h2 { margin: 0; font-size: 18px; font-weight: 600; line-height: normal; white-space: nowrap; }
+.guide-card h2 { margin: 0; font-size: 18px; font-weight: 500; line-height: normal; white-space: nowrap; }
 .guide-card p { display: flex; gap: 8px; margin: 8px 0 0; font-size: 14px; line-height: normal; }
 .guide-card button { align-self: flex-start; display: flex; align-items: center; justify-content: center; gap: 10px; height: 32px; padding: 0 12px; border: 0; border-radius: 4px; background: rgba(255,255,255,.24); font-size: 14px; line-height: 1.5; }
 .guide-card button:hover { background: rgba(255,255,255,.4); }
@@ -52,7 +53,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid white; outline-offset
 .preview-dialog button { border: 0; background: #ffffff30; padding: 10px 18px; border-radius: 4px; }
 @media (min-width: 821px) and (max-width: 1250px) {
   .header { padding-inline: 32px; }
-  .brand-lockup { left: 32px; width: 58vw; height: auto; }
+  .brand-lockup { left: 32px; width: min(576px, 48vw); height: auto; }
   .hero-copy { left: 32px; width: calc(100% - 500px); }
   .hero-copy h1 { width: 100%; font-size: clamp(36px, 4vw, 50px); }
   .hero-copy p { width: 100%; font-size: 18px; }
@@ -66,9 +67,9 @@ button:focus-visible, a:focus-visible { outline: 2px solid white; outline-offset
   .nav { display: none; }
   .profile > span:last-child { display: none; }
   .profile { padding-right: 0; }
-  .brand-lockup { top: 110px; left: 28px; width: calc(100% - 56px); height: auto; }
+  .brand-lockup { top: 110px; left: 28px; width: min(576px, calc(100% - 56px)); height: auto; }
   .hero-copy { left: 28px; right: 28px; bottom: 240px; width: auto; gap: 22px; }
-  .hero-copy h1 { width: 100%; font-size: clamp(32px, 5.5vw, 46px); letter-spacing: -.5px; }
+  .hero-copy h1 { width: 100%; font-size: clamp(32px, 5.5vw, 46px); }
   .hero-copy p { width: min(100%, 508px); font-size: 18px; }
   .guide-wrap { left: 28px; right: 28px; bottom: 64px; width: auto; }
   .guide-card { width: min(409px, 100%); gap: 8px; }
