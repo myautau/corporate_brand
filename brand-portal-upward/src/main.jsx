@@ -107,21 +107,32 @@ function InteractiveLetterField({ portalRef }) {
   </div>;
 }
 
-function Header({ onNotice }) {
-  return <header className="header">
+function Header({ onNotice, portalRef }) {
+  const [overMaterials, setOverMaterials] = useState(false);
+  useEffect(() => {
+    const update = () => setOverMaterials(portalRef.current.getBoundingClientRect().bottom <= 70);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [portalRef]);
+  return <header className={`header${overMaterials ? " header--over-materials" : ""}`}>
     <div className="header__left">
-      <a className="brandlist" href="#" aria-label="Брендлист — на главную"><img src={asset("brandlist-logo.svg")} alt="Брендлист" /></a>
+      <a className="brandlist" href="#" aria-label="Брендлист — на главную"><img src={asset(overMaterials ? "brandlist-light.svg" : "brandlist-logo.svg")} alt="Брендлист" /></a>
       <nav className="nav" aria-label="Основная навигация">
-        <button className="nav__item nav__item--active" onClick={() => onNotice("Бренды компании")}><span>Бренды компании</span><img src={asset("chevron.svg")} alt="" /></button>
-        <button className="nav__item" onClick={() => onNotice("Товарные знаки")}><span>Товарные знаки</span><img src={asset("chevron.svg")} alt="" /></button>
+        <button className="nav__item nav__item--active" onClick={() => onNotice("Бренды компании")}><span>Бренды компании</span><img src={asset(overMaterials ? "chevron-light-active.svg" : "chevron.svg")} alt="" /></button>
+        <button className="nav__item" onClick={() => onNotice("Товарные знаки")}><span>Товарные знаки</span><img src={asset(overMaterials ? "chevron-light.svg" : "chevron.svg")} alt="" /></button>
       </nav>
     </div>
     <div className="header__right">
-      <button className="icon-button notifications" onClick={() => onNotice("Уведомления")} aria-label="Уведомления"><img src={asset("notification.svg")} alt="" /></button>
+      <button className="icon-button notifications" onClick={() => onNotice("Уведомления")} aria-label="Уведомления"><img src={asset(overMaterials ? "notification-light.svg" : "notification.svg")} alt="" /></button>
       <button className="profile" onClick={() => onNotice("Иван Петров")} aria-label="Открыть профиль Ивана Петрова">
         <span className="profile__avatar"><img className="profile__photo" src={asset("avatar.png")} alt="" /><img className="profile__ring" src={asset("avatar-ring.svg")} alt="" /></span><span>Иван Петров</span>
       </button>
-      <button className="icon-button" onClick={() => onNotice("Выход")} aria-label="Выйти"><img src={asset("exit.svg")} alt="" /></button>
+      <button className="icon-button" onClick={() => onNotice("Выход")} aria-label="Выйти"><img src={asset(overMaterials ? "exit-light.svg" : "exit.svg")} alt="" /></button>
     </div>
   </header>;
 }
@@ -158,8 +169,8 @@ function App() {
       <p>Единая система фирменного стиля для всех подразделений и дочерних обществ</p>
     </section>
     <aside className="guide-wrap"><GuideCard onNotice={setNotice} /></aside>
-    <Header onNotice={setNotice} />
     </section>
+    <Header onNotice={setNotice} portalRef={portalRef} />
     <Materials onOpen={setNotice} />
     {notice && <PreviewDialog title={notice} close={() => setNotice(null)} />}
   </main>;

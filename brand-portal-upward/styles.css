@@ -28,7 +28,12 @@ button:focus-visible, a:focus-visible { outline: 2px solid white; outline-offset
 .guide-card__cover { position: relative; flex: 0 0 127px; height: 127px; overflow: hidden; border-radius: 4px; }
 .guide-card__art { position: absolute; top: 14px; left: 10px; width: 293px; height: 179px; border-radius: 8px 14px 0 0; overflow: hidden; transform: scaleX(-1); }
 .guide-card__art img { position: absolute; top: .03%; left: -3.77%; width: 110.24%; height: 99.97%; max-width: none; }
-.header { position: absolute; inset: 0 0 auto; display: flex; align-items: center; justify-content: space-between; height: 70px; padding: 0 56px; border-bottom: 1px solid rgba(255,255,255,.2); }
+.header { position: fixed; z-index: 10; inset: 0 0 auto; display: flex; align-items: center; justify-content: space-between; height: 70px; padding: 0 56px; border-bottom: 1px solid rgba(255,255,255,.2); background: var(--brand-blue); isolation: isolate; }
+.header--over-materials { background: #fff; color: #002033; border-bottom-color: rgba(0,65,102,.2); color-scheme: light; }
+.header--over-materials .nav__item:not(.nav__item--active) { color: rgba(0,32,51,.6); }
+.header--over-materials .nav__item--active span::after { background: #0078d2; }
+.header--over-materials :is(button, a):focus-visible { outline-color: #0078d2; }
+#materials { scroll-margin-top: 70px; }
 .header__left, .header__right, .nav, .profile { display: flex; align-items: center; }
 .header__left { align-self: stretch; gap: 32px; }
 .header__right { gap: 8px; }

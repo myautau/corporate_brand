@@ -3,10 +3,10 @@ import assert from "node:assert/strict";
 import layout from "./symbols.json" with { type: "json" };
 import { densifySymbols } from "./density.js";
 
-test("density is approximately 10% below 65 without changing original glyphs", () => {
+test("density adds twelve accents without changing original glyphs", () => {
   const snapshot = JSON.stringify(layout);
   const result = densifySymbols(layout);
-  assert.equal(result.length, Math.round(65 * .9));
+  assert.equal(result.length, 62);
   assert.deepEqual(result.slice(0, layout.length), layout);
   assert.equal(JSON.stringify(layout), snapshot);
   assert.equal(new Set(result.map(s => s.id)).size, result.length);

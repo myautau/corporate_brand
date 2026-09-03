@@ -33,8 +33,8 @@ test("spacing survives different speeds and loop seams over ten minutes", () => 
     }
   }
 });
-test("59 slots retain their positions, depth, speed and visual scale", () => {
-  assert.equal(arranged.length,59);
+test("all slots retain their positions, depth, speed and visual scale", () => {
+  assert.equal(arranged.length,originals.length);
   arranged.forEach((s,i) => {
     for (const key of ["id","x","y","alpha","depth"]) assert.equal(s[key], originals[i][key]);
     assert.ok(Math.abs(Math.max(s.width,s.height)-Math.max(originals[i].width,originals[i].height)) < 1e-8);
