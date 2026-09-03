@@ -7,10 +7,12 @@ const balancedAccents = [
   { x: 400, y: 64 }, { x: 640, y: 320 }, { x: 240, y: 320 },
   { x: 1280, y: 64 }, { x: 1120, y: 384 }, { x: 880, y: 192 },
   { x: 880, y: 384 }, { x: 160, y: 768 }, { x: 1280, y: 640 },
+  { x: 240, y: 768 }, { x: 1120, y: 64 },
+  { x: 480, y: 384 }, { x: 1120, y: 768 },
 ];
-// Preserve the existing nine accents' artwork and speed when adding three more.
-const accentSources = [2, 8, 13, 19, 25, 30, 36, 41, 47, 10, 22, 35];
-export function densifySymbols(originals, ratio = .24) {
+// The last four accents fill recurring gaps sampled across 120 seconds of motion.
+const accentSources = [2, 8, 13, 19, 25, 30, 36, 41, 47, 10, 22, 35, 24, 26, 40, 44];
+export function densifySymbols(originals, ratio = .32) {
   if (!originals.length) return [];
   const result = [...originals];
   const candidates = [];
